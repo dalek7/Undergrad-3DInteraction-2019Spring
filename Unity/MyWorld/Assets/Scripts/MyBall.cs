@@ -5,7 +5,7 @@ using UnityEngine;
 public class MyBall : MonoBehaviour {
     public float speed;
     private Rigidbody rb;
-
+	public AudioSource sound1;
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
@@ -32,12 +32,13 @@ public class MyBall : MonoBehaviour {
     }
 
 	void OnTriggerEnter(Collider other)
-    {
+	{
 		if (other.gameObject.CompareTag("Pick Up"))
 		{
 			other.gameObject.SetActive(false);
 			//Destroy(other.gameObject);
-		
+			
+			sound1.Play();
 		}
 	}
 }
