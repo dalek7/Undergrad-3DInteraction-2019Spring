@@ -1,16 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MyBall : MonoBehaviour {
     public float speed;
     private Rigidbody rb;
 	public AudioSource sound1;
+	public Text cntText1;
+
+	int cnt1;
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
         speed = 10;
-
+		cnt1 = 0;
+		cntText1.text = "Count: " + cnt1.ToString();
     }
 
     // Update is called once per frame
@@ -28,7 +33,8 @@ public class MyBall : MonoBehaviour {
 
         Vector3 movement = new Vector3(mh, jump, mv);
         rb.AddForce(movement * speed);
-
+		
+		cntText1.text = "Count: " + cnt1.ToString();
     }
 
 	void OnTriggerEnter(Collider other)
@@ -38,6 +44,7 @@ public class MyBall : MonoBehaviour {
 			other.gameObject.SetActive(false);
 			//Destroy(other.gameObject);
 			
+			cnt1 = cnt1+1;
 			sound1.Play();
 		}
 	}
