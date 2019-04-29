@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.SceneManagement;
+
+
 public class MyBall : MonoBehaviour {
     public float speed;
     private Rigidbody rb;
@@ -17,7 +20,13 @@ public class MyBall : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         speed = 10;
 		cnt1 = 0;
-		cntText1.text = "Count: " + cnt1.ToString();
+		
+		Debug.Log(SceneManager.GetActiveScene().name);
+
+		if(SceneManager.GetActiveScene().name =="PickupTest")
+		{
+			cntText1.text = "Count: " + cnt1.ToString();
+		}
     }
 
     // Update is called once per frame
@@ -36,7 +45,13 @@ public class MyBall : MonoBehaviour {
         Vector3 movement = new Vector3(mh, jump, mv);
         rb.AddForce(movement * speed);
 		
-		cntText1.text = "Count: " + cnt1.ToString();
+		if(SceneManager.GetActiveScene().name =="PickupTest")
+		{
+			cntText1.text = "Count: " + cnt1.ToString();
+		}
+
+		
+		Debug.Log("Count: " + cnt1.ToString()); 
     }
 
 	void OnTriggerEnter(Collider other)
