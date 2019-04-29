@@ -7,9 +7,11 @@ public class MyBall : MonoBehaviour {
     public float speed;
     private Rigidbody rb;
 	public AudioSource sound1;
-	public Text cntText1;
 
+	public Text cntText1;
 	int cnt1;
+
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
