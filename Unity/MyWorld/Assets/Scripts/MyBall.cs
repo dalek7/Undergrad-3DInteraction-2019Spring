@@ -50,8 +50,6 @@ public class MyBall : MonoBehaviour {
 			cntText1.text = "Count: " + cnt1.ToString();
 		}
 
-		
-		Debug.Log("Count: " + cnt1.ToString()); 
     }
 
 	void OnTriggerEnter(Collider other)
