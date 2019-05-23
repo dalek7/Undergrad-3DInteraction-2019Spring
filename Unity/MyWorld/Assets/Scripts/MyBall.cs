@@ -60,6 +60,7 @@ public class MyBall : MonoBehaviour {
 			//Destroy(other.gameObject);
 			
 			cnt1 = cnt1+1;
+			Debug.Log("collision");
 			sound1.Play();
 		}
 	}
