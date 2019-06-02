@@ -13,8 +13,10 @@ public class Character_Animations : MonoBehaviour {
 	void Update () {
 		v=Input.GetAxis("Vertical");
 		h=Input.GetAxis("Horizontal");
-		if (animator.GetFloat("Run")==0.2f){
-				if (Input.GetKeyDown("space")){
+
+		if (animator.GetFloat("Run")==0.2f)
+		{
+				if (Input.GetKeyDown("space") || Input.GetKeyDown(KeyCode.JoystickButton4)){
 						animator.SetBool("Jump",true);
 				}
 		}
@@ -28,7 +30,7 @@ public class Character_Animations : MonoBehaviour {
 	}
 
 	void Sprinting(){
-		if (Input.GetKey(KeyCode.LeftShift))
+		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.JoystickButton3))
 			run=0.2f;
 		else
 			run=0.0f;

@@ -25,8 +25,14 @@ public class MyCharacter : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-		
-
+		if (Input.GetKeyDown(KeyCode.JoystickButton0)) {
+             Debug.Log("Character JoystickButton0!!");
+			 
+        }
+		else if (Input.GetKeyDown(KeyCode.JoystickButton1)) {
+             Debug.Log("Character JoystickButton1!!"); 
+			 sound1.Play();
+        }
     }
 
 	void OnTriggerEnter(Collider other)
