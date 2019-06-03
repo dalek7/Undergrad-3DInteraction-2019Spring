@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public GameObject bullet;
 
-    // Update is called once per frame
+	// 발사 위치
+	private Transform firePosition;
+    
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+			firePosition = this.transform;
+
+            Instantiate(bullet, firePosition.position, firePosition.rotation);
+        }
     }
 }
